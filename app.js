@@ -7,11 +7,13 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import subscriptionRouter from './routes/subscription.route.js';
 import cookieParser from 'cookie-parser';
+import arcjetMiddleware from './middlewares/arcjet.middleware.js';
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(arcjetMiddleware);
 
 // app.use(express.json()); allows your app to parse JSON request bodies
 // app.use(express.urlencoded({ extended: true })); allows your app to parse URL-encoded request bodies. helps us to process the form data sent via HTML forms in a simple format
